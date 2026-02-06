@@ -12,15 +12,21 @@
 
 Reference tissue width measured using the Virtual Human Embryo viewer for each selected section:
 - Slice 43: 565 µm 
-- Slice 44:  µm
-- Slice 45:  µm
-- Slice 46:  µm
-- Slice 47:  µm
-- Slice 48:  µm
-- Slice 49:  µm
-- Slice 50:  µm
-- Slice 51:  µm
-- Slice 52:  µm
+- Slice 44: 565 µm
+- Slice 45: 565 µm
+- Slice 46: 565 µm
+- Slice 47: 565 µm
+- Slice 48: 565 µm
+- Slice 49: 565 µm
+- Slice 50: 565 µm
+- Slice 51: 565 µm
+- Slice 52: 565 µm
+
+All slices have a width of **565 µm**.
+
+Images were calibrated in Fiji using a reference distance measured in the Virtual Human Embryo viewer (565 µm across the tissue width in the same section); the corresponding pixel distance (~500 pixels for a representative slice) was measured in Fiji and used to set the pixel-to-micrometer scale prior to all area and shape measurements.
+
+
 
 ### Stage 5c (~11 to 12 days post-fertilization)
 
