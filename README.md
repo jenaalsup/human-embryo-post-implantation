@@ -6,15 +6,27 @@
 
 ### Stage 5b (~9 days post-fertilization)
 
-* Total z-section: [TBD]
-* Epiblast visible in slices: [TBD]
-* Selected slices (middle 10 w/ epiblast): [TBD]
+* Total z-sections: 100
+* Epiblast visible in slices: 41-55
+* Selected slices (middle 10 w/ epiblast): 43-52 (inclusive)
+
+Reference tissue width measured using the Virtual Human Embryo viewer for each selected section:
+- Slice 43: 565 µm 
+- Slice 44:  µm
+- Slice 45:  µm
+- Slice 46:  µm
+- Slice 47:  µm
+- Slice 48:  µm
+- Slice 49:  µm
+- Slice 50:  µm
+- Slice 51:  µm
+- Slice 52:  µm
 
 ### Stage 5c (~11 to 12 days post-fertilization)
 
 * Total z-sections: 140
 * Epiblast present in slices: 56-83
-* Selected slices (middle 10 w/ epiblast) chosen slices: 65-74 (inclusive)
+* Selected slices (middle 10 w/ epiblast): 65-74 (inclusive)
 
 Reference tissue width measured using the Virtual Human Embryo viewer for each selected section:
 - Slice 65: 717 µm 
