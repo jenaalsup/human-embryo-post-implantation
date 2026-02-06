@@ -28,7 +28,7 @@ Images were calibrated in Fiji using a reference distance measured in the Virtua
 
 The yolk sac cavity was manually outlined using the Freehand Selection tool in Fiji, tracing the inner lumenal boundary.
 
-Measurements for Stage 5b are stored in `data/carnegie-5b-yolk-sac-area.csv`. Across the ten selected sections, yolk sac cavity cross-sectional area ranged from approximately TBD µm².
+Measurements for Stage 5b are stored in `data/carnegie-5b-yolk-sac-area.csv`. Across the ten selected sections, yolk sac cavity cross-sectional area ranged from approximately 6.5×10³ to 1.01×10⁴ µm².
 
 
 ### Stage 5c (~11 to 12 days post-fertilization)
