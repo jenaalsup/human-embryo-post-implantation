@@ -56,3 +56,14 @@ Images were calibrated in Fiji using a reference distance measured in the Virtua
 The yolk sac cavity was manually outlined using the Freehand Selection tool in Fiji, tracing the inner lumenal boundary.
 
 Measurements for Stage 5c are stored in `data/carnegie-5c-yolk-sac-area.csv`. Across the ten selected sections, yolk sac cavity cross-sectional area ranged from approximately 1.01×10⁵ to 1.17×10⁵ µm².
+
+## Primitive vs Visceral Endoderm Nuclear Morphology
+
+Nuclear aspect ratios (major axis / minor axis) were measured to distinguish primitive endoderm (elongated) from visceral endoderm (cuboidal) within the red channel of `16S3_VE+INT+PE.tif`.
+
+The original image contains three channels: yellow (epiblast), green (trophoblast), and red (both primitive and visceral endoderm nuclei).
+
+Nuclei were segmented from the red channel (`segmentations.tif`), manually curated to remove artifacts (`remove-shadow-nucleus.py` → `segmentations_without_shadow.tif`), and aspect ratios were computed for each nucleus.
+
+`plot-aspect-ratio.py` generates a color-coded overlay (`aspect_ratio_linear_overlay.png`) where nuclei are colored by aspect ratio (blue = low/cuboidal, red = high/elongated). The overlay is shown on the yellow and green background only.
+
