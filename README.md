@@ -77,4 +77,4 @@ Nuclei were segmented from DAPI channel (three images: 17s1 z20, 18s1 z14, 18s2 
 
 `amnion-epiblast-plot.py` generates spatial plots showing nucleus positions color-coded by cell type (blue=amnion, orange=epiblast) for each image.
 
-Results stored in `amnion-vs-epiblast-orientation.png` and `amnion-vs-epiblast-raw-data.csv`.
+Results stored in `cell-type-orientation.png` and `cell-type-orientation-raw-data.csv`.
