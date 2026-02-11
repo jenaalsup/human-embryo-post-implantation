@@ -1,26 +1,33 @@
 #!/usr/bin/env python3
 """
-Simple plot of amnion vs epiblast nuclei.
-Blue = Amnion, Orange = Epiblast
+Simple plot of amnion, intermediate, and epiblast nuclei.
+Blue = Amnion, Purple = Intermediate, Orange = Epiblast
 """
 
 import csv
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
+import os
+
+# Get directory where this script is located
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+DATA_DIR = os.path.join(SCRIPT_DIR, '..', 'data')
 
 # Files to process
 INPUT_FILES = [
-    "17s1z20-segmentation.csv",
-    "18s1z14-segmentation.csv",
-    "18s2z9-segmentation.csv"
+    os.path.join(DATA_DIR, "17s1z20-segmentation.csv"),
+    os.path.join(DATA_DIR, "18s1z14-segmentation.csv"),
+    os.path.join(DATA_DIR, "18s2z9-segmentation.csv")
 ]
 
 def plot_classification(input_csv):
     """Create plot for a single segmentation file."""
     
-    # Generate output filename
-    output = input_csv.replace('-segmentation.csv', '-amnion-epiblast-plot.png')
+    # Generate output filename (save one folder up from data/)
+    basename = os.path.basename(input_csv).replace('-segmentation.csv', '-amnion-epiblast-plot.png')
+    parent_dir = os.path.dirname(os.path.dirname(input_csv))
+    output = os.path.join(parent_dir, basename)
     
     # Read nuclei
     nuclei = []
@@ -31,12 +38,13 @@ def plot_classification(input_csv):
                 'id': len(nuclei) + 1,
                 'x': float(row['X']),
                 'y': float(row['Y']),
-                'is_amnion': row['IsAmnion'].strip().upper() == 'Y'
+                'type': row['EpiblastAmnionIntermediate'].strip().upper()
             })
     
     # Separate by type
-    amnion = [n for n in nuclei if n['is_amnion']]
-    epiblast = [n for n in nuclei if not n['is_amnion']]
+    amnion = [n for n in nuclei if n['type'] == 'A']
+    intermediate = [n for n in nuclei if n['type'] == 'I']
+    epiblast = [n for n in nuclei if n['type'] == 'E']
     
     # Calculate center
     center_x = sum(n['x'] for n in nuclei) / len(nuclei)
@@ -51,6 +59,15 @@ def plot_classification(input_csv):
                   c='#1E88E5', s=300, alpha=0.7, edgecolors='black', 
                   linewidth=2, label='Amnion', zorder=3)
         for n in amnion:
+            ax.text(n['x'], n['y'], str(n['id']), fontsize=9, ha='center', 
+                   va='center', color='white', fontweight='bold', zorder=4)
+    
+    # Plot intermediate (purple)
+    if intermediate:
+        ax.scatter([n['x'] for n in intermediate], [n['y'] for n in intermediate], 
+                  c='#9C27B0', s=300, alpha=0.7, edgecolors='black', 
+                  linewidth=2, label='Intermediate', zorder=3)
+        for n in intermediate:
             ax.text(n['x'], n['y'], str(n['id']), fontsize=9, ha='center', 
                    va='center', color='white', fontweight='bold', zorder=4)
     
@@ -75,8 +92,8 @@ def plot_classification(input_csv):
     # Format
     ax.set_xlabel('X (pixels)', fontsize=12)
     ax.set_ylabel('Y (pixels)', fontsize=12)
-    ax.set_title(f'Amnion vs Epiblast Classification\n'
-                f'Amnion: {len(amnion)} | Epiblast: {len(epiblast)}', 
+    ax.set_title(f'Cell Classification\n'
+                f'Amnion: {len(amnion)} | Intermediate: {len(intermediate)} | Epiblast: {len(epiblast)}', 
                 fontsize=14, fontweight='bold')
     ax.set_aspect('equal')
     ax.invert_yaxis()
@@ -87,10 +104,10 @@ def plot_classification(input_csv):
     plt.savefig(output, dpi=300, bbox_inches='tight')
     plt.close()
     
-    print(f"✓ {input_csv} -> {output}")
-    print(f"  Amnion: {len(amnion)} | Epiblast: {len(epiblast)}")
+    print(f"✓ {os.path.basename(input_csv)} -> {os.path.basename(output)}")
+    print(f"  Amnion: {len(amnion)} | Intermediate: {len(intermediate)} | Epiblast: {len(epiblast)}")
     
-    return len(amnion), len(epiblast)
+    return len(amnion), len(intermediate), len(epiblast)
 
 # Process all files
 print("Processing segmentation files...\n")
