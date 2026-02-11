@@ -1,6 +1,6 @@
 # Data and Analysis for Human Embryo Post-Implantation Project
 
-## Yolk Sac Geometry w/ Carnegie Virtual Human Embryo Data
+## Yolk Sac Geometry w/ Carnegie Virtual Human Embryo Data (/yolk-sac-geometry)
 
 10 sections used per stage (from one embryo)
 
@@ -57,7 +57,7 @@ The yolk sac cavity was manually outlined using the Freehand Selection tool in F
 
 Measurements for Stage 5c are stored in `data/carnegie-5c-yolk-sac-area.csv`. Across the ten selected sections, yolk sac cavity cross-sectional area ranged from approximately 1.01×10⁵ to 1.17×10⁵ µm².
 
-## Primitive vs Visceral Endoderm Nuclear Morphology
+## Primitive vs Visceral Endoderm Nuclear Morphology (/PE-VE-aspect-ratio)
 
 Nuclear aspect ratios (major axis / minor axis) were measured to distinguish primitive endoderm (elongated) from visceral endoderm (cuboidal) within the red channel of `16S3_VE+INT+PE.tif`.
 
@@ -67,3 +67,14 @@ Nuclei were segmented from the red channel (`segmentations.tif`), manually curat
 
 `plot-aspect-ratio.py` generates a color-coded overlay (`aspect_ratio_linear_overlay.png`) where nuclei are colored by aspect ratio (blue = low/cuboidal, red = high/elongated). The overlay is shown on the yellow and green background only.
 
+## Orientation of Amnion vs Epiblast Nuclei (/amnion-epiblast-positioning)
+
+Nuclear major axis orientation was analyzed to compare alignment relative to the radial direction (center → nucleus) in amnion vs epiblast cells.
+
+Nuclei were segmented from DAPI channel (three images: 17s1 z20, 18s1 z14, 18s2 z9) using the Fiji macros in `/scripts`, then manually classified as amnion or epiblast. The orientation angle of each nucleus's major axis relative to its radial direction was calculated (0° = parallel, 90° = perpendicular).
+
+`scripts/compare-orientation-angles.py` performs statistical comparison (Welch's t-test) and generates a box plot with scatter overlay. Amnion nuclei (n=40) are significantly more perpendicular to the radius (mean=47.4°) compared to epiblast nuclei (n=57, mean=36.9°; t=1.988, p=0.0468).
+
+`amnion-epiblast-plot.py` generates spatial plots showing nucleus positions color-coded by cell type (blue=amnion, orange=epiblast) for each image.
+
+Results stored in `amnion-vs-epiblast-orientation.png` and `amnion-vs-epiblast-raw-data.csv`.
