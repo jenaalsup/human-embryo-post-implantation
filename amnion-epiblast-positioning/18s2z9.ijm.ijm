@@ -27,7 +27,7 @@ run("Fill Holes");
 run("Watershed");
 
 // particle analysis (labeling)
-run("Set Measurements...", "area centroid shape display redirect=None decimal=2");
+run("Set Measurements...", "area centroid fit shape display redirect=None decimal=2");
 roiManager("reset");
 run("Analyze Particles...", "size=25-300 circularity=0.00-1.00 show=Overlay display clear include add");
 roiManager("Deselect");

@@ -24,7 +24,7 @@ run("Options...", "iterations=1 count=1 black do=Close");
 run("Watershed");
 
 // Analyze particles — slightly looser circularity
-run("Set Measurements...", "area centroid shape display redirect=None decimal=2");
+run("Set Measurements...", "area centroid fit shape display redirect=None decimal=2");
 roiManager("reset");
 run("Analyze Particles...", "size=30-600 circularity=0.15-1.00 show=Overlay display clear include add");
 roiManager("Deselect");
