@@ -102,6 +102,7 @@ def plot_classification(input_csv):
     
     plt.tight_layout()
     plt.savefig(output, dpi=300, bbox_inches='tight')
+    plt.savefig(output.replace('.png', '.eps'), format='eps', bbox_inches='tight')
     plt.close()
     
     print(f"✓ {os.path.basename(input_csv)} -> {os.path.basename(output)}")
