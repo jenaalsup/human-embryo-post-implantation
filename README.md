@@ -57,6 +57,31 @@ The yolk sac cavity was manually outlined using the Freehand Selection tool in F
 
 Measurements for Stage 5c are stored in `data/carnegie-5c-yolk-sac-area.csv`. Across the ten selected sections, yolk sac cavity cross-sectional area ranged from approximately 1.01×10⁵ to 1.17×10⁵ µm².
 
+### Number of epiblast cells:
+5b:
+- Slice 43: 26  
+- Slice 44: 34
+- Slice 45: 26
+- Slice 46: 30
+- Slice 47: 27
+- Slice 48: 30
+- Slice 49: 28
+- Slice 50: 16
+- Slice 51: 18
+- Slice 52: 22
+5c:
+- Slice 65: 26
+- Slice 66: 27
+- Slice 67: 31
+- Slice 68: 42
+- Slice 69: 37
+- Slice 70: 35
+- Slice 71: 29
+- Slice 72: 25
+- Slice 73: 30
+- Slice 74: 25
+
+
 ## Primitive vs Visceral Endoderm Nuclear Morphology (/PE-VE-aspect-ratio)
 
 Nuclear aspect ratios (major axis / minor axis) were measured to distinguish primitive endoderm (elongated) from visceral endoderm (cuboidal) within the red channel of `16S3_VE+INT+PE.tif`.
