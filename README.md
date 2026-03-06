@@ -69,6 +69,7 @@ Measurements for Stage 5c are stored in `data/carnegie-5c-yolk-sac-area.csv`. Ac
 - Slice 50: 16
 - Slice 51: 18
 - Slice 52: 22
+
 5c:
 - Slice 65: 26
 - Slice 66: 27
