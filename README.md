@@ -86,7 +86,7 @@ Measurements for Stage 5c are stored in `data/carnegie-5c-yolk-sac-area.csv`. Ac
 ## Yolk Sac Geometry w/ Experimental Data (/yolk-sac-geometry/experimental)
 
 Section 3 > Series 1 > epiblast visible from z-slices 4 to 37, use slices 18-22 (middle 5)
-Section 2 > 
+Section 2 > Series 10 > epiblast visible from z-slices 12 to 25, use slices 19-23 (middle 5)
 Section 1 > 
 
 
