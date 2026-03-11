@@ -1,6 +1,6 @@
 # Data and Analysis for Human Embryo Post-Implantation Project
 
-## Yolk Sac Geometry w/ Carnegie Virtual Human Embryo Data (/yolk-sac-geometry)
+## Yolk Sac Geometry w/ Carnegie Virtual Human Embryo Data (/yolk-sac-geometry/carnegie)
 
 10 sections used per stage (from one embryo)
 
@@ -59,28 +59,35 @@ Measurements for Stage 5c are stored in `data/carnegie-5c-yolk-sac-area.csv`. Ac
 
 ### Number of epiblast cells:
 5b:
-- Slice 43: 26  
-- Slice 44: 34
-- Slice 45: 26
-- Slice 46: 30
-- Slice 47: 27
-- Slice 48: 30
-- Slice 49: 28
+- Slice 43: 12
+- Slice 44: 14
+- Slice 45: 18
+- Slice 46: 19
+- Slice 47: 21
+- Slice 48: 18
+- Slice 49: 18
 - Slice 50: 16
-- Slice 51: 18
-- Slice 52: 22
+- Slice 51: 13
+- Slice 52: 12
 
 5c:
-- Slice 65: 26
-- Slice 66: 27
-- Slice 67: 31
-- Slice 68: 42
-- Slice 69: 37
-- Slice 70: 35
-- Slice 71: 29
+- Slice 65: 24
+- Slice 66: 24
+- Slice 67: 23
+- Slice 68: 27
+- Slice 69: 35
+- Slice 70: 23
+- Slice 71: 23
 - Slice 72: 25
-- Slice 73: 30
-- Slice 74: 25
+- Slice 73: 24
+- Slice 74: 22
+
+
+## Yolk Sac Geometry w/ Experimental Data (/yolk-sac-geometry/experimental)
+
+Section 3 > Series 1 > epiblast visible from z-slices 4 to 37, use slices 18-22 (middle 5)
+Section 2 > 
+Section 1 > 
 
 
 ## Primitive vs Visceral Endoderm Nuclear Morphology (/PE-VE-aspect-ratio)
