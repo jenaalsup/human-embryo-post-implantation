@@ -85,10 +85,17 @@ Measurements for Stage 5c are stored in `data/carnegie-5c-yolk-sac-area.csv`. Ac
 
 ## Yolk Sac Geometry w/ Experimental Data (/yolk-sac-geometry/experimental)
 
+### Day 12
 Section 3 > Series 1 > epiblast visible from z-slices 4 to 37, use slices 18-22 (middle 5)
 Section 2 > Series 10 > epiblast visible from z-slices 12 to 25, use slices 19-23 (middle 5)
 Section 1 > Series 10 > 27 sections total, use slices 12-16 (middle 5)
 
+### Day 10
+- MAX_Composite_zstack.tif (one measurement)
+- C5-E7_Slide16_Sec3_HYPO > epiblast visible from slices 1-21, use slices 9-13 (middle 5)
+- C5-E7_Slide17_Sec1_HYPO > epiblast visible from slices 4-22, use slices 11-15 (middle 5)
+- E9_Slide16_Sec3 > epiblast visible from slices 2-26, use slices 12-16 (middle 5)
+- E9_Slide17_Sec1 > epiblast visible from slices 1-21, use slices 9-13 (middle 5)
 
 ## Primitive vs Visceral Endoderm Nuclear Morphology (/PE-VE-aspect-ratio)
 
