@@ -15,14 +15,17 @@ import os
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 DATA_DIR = os.path.join(SCRIPT_DIR, '..', 'data')
 
+DATASET_LABEL = "Day 12"
+
 # Input files
 INPUT_FILES = [
-    os.path.join(DATA_DIR, "17s1z20-segmentation.csv"),
-    os.path.join(DATA_DIR, "18s1z14-segmentation.csv"),
-    os.path.join(DATA_DIR, "18s2z9-segmentation.csv")
+    os.path.join(DATA_DIR, "260916_Day12-Vasc_S9-Sec2_Z13-segmentation.csv"),
+    os.path.join(DATA_DIR, "260916_Day12-Vasc_S9-Sec2_Z26-segmentation.csv"),
+    os.path.join(DATA_DIR, "260916_Day12-Vasc_S9-Sec2_Z33-segmentation.csv"),
+    os.path.join(DATA_DIR, "260916_Day12-Vasc_S9-Sec3_Z23-segmentation.csv"),
 ]
 
-OUTPUT = os.path.join(os.path.dirname(DATA_DIR), "cell-type-orientation.png")
+OUTPUT = os.path.join(os.path.dirname(DATA_DIR), "cell-type-orientation-day12.png")
 
 def calculate_orientation_angle(center_x, center_y, nucleus_x, nucleus_y, major_axis_angle):
     """Calculate orientation angle (0-90°) relative to radial direction."""
@@ -104,7 +107,7 @@ def welch_ttest(x, y):
 t_stat, df, pvalue = welch_ttest(amnion_angles, epiblast_angles)
 
 print(f"\n{'='*60}")
-print("RESULTS")
+print(f"RESULTS ({DATASET_LABEL})")
 print(f"{'='*60}")
 print(f"Amnion: n={len(amnion_angles)}, mean={sum(amnion_angles)/len(amnion_angles):.1f}°")
 print(f"Intermediate: n={len(intermediate_angles)}, mean={sum(intermediate_angles)/len(intermediate_angles):.1f}°")
@@ -153,7 +156,7 @@ ax.text(2, y_pos+6, f'p={pvalue:.4f}', ha='center', va='bottom', fontsize=10)
 
 # Format
 ax.set_ylabel('Orientation Angle (°)', fontsize=14, fontweight='bold')
-ax.set_title('Nuclear Major Axis Orientation by Cell Type\n0° = Parallel to radius, 90° = Perpendicular to radius', 
+ax.set_title(f'Nuclear Major Axis Orientation by Cell Type ({DATASET_LABEL})\n0° = Parallel to radius, 90° = Perpendicular to radius', 
             fontsize=13, fontweight='bold', pad=20)
 ax.set_ylim(-5, y_pos + 15)
 ax.grid(axis='y', alpha=0.3, linestyle='--')
@@ -172,15 +175,15 @@ print(f"✓ Plot saved: {OUTPUT.replace('.png', '.eps')}")
 # Save raw data to CSV
 raw_data = []
 for angle in amnion_angles:
-    raw_data.append({'cell_type': 'Amnion', 'orientation_angle': angle})
+    raw_data.append({'dataset': DATASET_LABEL, 'cell_type': 'Amnion', 'orientation_angle': angle})
 for angle in intermediate_angles:
-    raw_data.append({'cell_type': 'Intermediate', 'orientation_angle': angle})
+    raw_data.append({'dataset': DATASET_LABEL, 'cell_type': 'Intermediate', 'orientation_angle': angle})
 for angle in epiblast_angles:
-    raw_data.append({'cell_type': 'Epiblast', 'orientation_angle': angle})
+    raw_data.append({'dataset': DATASET_LABEL, 'cell_type': 'Epiblast', 'orientation_angle': angle})
 
-output_csv = os.path.join(os.path.dirname(DATA_DIR), "cell-type-orientation-raw-data.csv")
+output_csv = os.path.join(os.path.dirname(DATA_DIR), "cell-type-orientation-day12-raw-data.csv")
 with open(output_csv, 'w', newline='') as f:
-    writer = csv.DictWriter(f, fieldnames=['cell_type', 'orientation_angle'])
+    writer = csv.DictWriter(f, fieldnames=['dataset', 'cell_type', 'orientation_angle'])
     writer.writeheader()
     writer.writerows(raw_data)
 
