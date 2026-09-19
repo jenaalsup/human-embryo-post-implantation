@@ -1,4 +1,4 @@
-outputPath = "/Users/jenaalsup/Desktop/260916_Day12-Vasc_S9-Sec2_Z26.csv";
+outputPath = "/Users/jenaalsup/Desktop/260916_Day12-Vasc_S9-Sec3_Z23.csv";
 
 // duplicate and isolate DAPI channel
 run("Duplicate...", "duplicate channels=1 title=Segmentation duplicate");
@@ -11,7 +11,7 @@ run("Despeckle");
 run("Close");
 
 // Threshold — return to your original fixed threshold
-setThreshold(45, 255);
+setThreshold(50, 255);
 run("Convert to Mask");
 
 // Morph cleanup — conservative
